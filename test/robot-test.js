@@ -19,6 +19,20 @@ describe('XspeedIt', function() {
         expect(result).to.equal('1');
     });
 
+    it('should pack with 5', function () {
+        const result = robot.pack('5');
+        const packageAmount = result.split('/').length;
+        expect(packageAmount).to.equal(1);
+        expect(result).to.equal('5');
+    });
+
+    it('should pack with 56', function () {
+        const result = robot.pack('56');
+        const packageAmount = result.split('/').length;
+        expect(packageAmount).to.equal(2);
+        expect(result).to.equal('6/5');
+    });
+
     it('should pack with 1111', function () {
         const result = robot.pack('1111');
         const packageAmount = result.split('/').length;

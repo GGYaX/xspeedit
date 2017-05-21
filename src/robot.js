@@ -3,7 +3,8 @@ const PACKAGE_MAXIMUM_WEIGHT = 10;
 /**
  * Trouver prochain article à ajouter dans le carton.
  *
- * Complexité: o(1)
+ * Complexité en temps: O(1)
+ * Complexité espace: O(1)
  *
  * @param packageWeight
  * @param categorizedArticles
@@ -22,15 +23,15 @@ function findNextArticleToFill(packageWeight, categorizedArticles) {
 /**
  * packager les articles. pour chaque poids, chercher le prochain article.
  *
- * Complexité: o(n)
+ * Complexité temps: O(n)
  *
  * @param categorizedArticles
  * @returns {Array}
  */
 function pack(categorizedArticles) {
     const packages = [];
-    for(let articleWeight = categorizedArticles.length - 1; articleWeight >= 1; articleWeight--) { // complexiteé o(1)
-        while(categorizedArticles[articleWeight] > 0) { // complexité en o(n)
+    for(let articleWeight = categorizedArticles.length - 1; articleWeight >= 1; articleWeight--) { // complexité temps O(1)
+        while(categorizedArticles[articleWeight] > 0) { // complexité temps en O(n)
             let packageString = '';
             let packageWeight = articleWeight;
 
@@ -57,6 +58,9 @@ function pack(categorizedArticles) {
 
 /**
  * Categoriser les poids d'article en poids. Compter le nombre d'article suivant le poids.
+ *
+ * Complexité temps: O(n)
+ * Complexité espace: O(1)
  *
  * @param inputArticles
  * @returns {Array}

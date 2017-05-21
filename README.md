@@ -33,3 +33,37 @@ Articles      : 163841689525773
 Robot actuel  : 163/8/41/6/8/9/52/5/7/73 => 10 cartons utilisés  
 Robot optimisé: 163/82/46/19/8/55/73/7   => 8  cartons utilisés
 ```
+
+# Solution
+
+L'idée est de créer un module qui est performant et facile à utiliser.
+
+Ce programme a la complexité en temps O(n) et complexité en space en O(1).
+
+## Usage
+
+node version 7.10
+
+```
+node app.js 163841689525773
+```
+
+Exemple de sortie:
+
+```
+Articles: 163841689525773
+Robot optimisé: 91/82/81/73/73/64/6/55
+```
+
+Ou require('src/robot') et utiliser la fonction pack.
+
+## Algorithme
+
+En introduisant un map, on évite de faire un triage d'articles qui est en nlog(n). Le map permet aussi de itérer l'entièrement les données en limité à 10 itération.
+
+1. Regrouper les articles en poids, avec un map/tableau comme: `{poids: nombre d'articles}`.
+2. Itérer sur ce tableau, pour chaque poids, chercher les poids à compléter un carton(en trouvant les poids max disponibles). Quand un poids est choisit, décrémente le nombre d'articles pour ce poids.
+
+## Continued build par Travis
+
+[![Build Status](https://travis-ci.org/GGYaX/xspeedit.svg?branch=master)](https://travis-ci.org/GGYaX/xspeedit)
